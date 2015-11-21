@@ -1,0 +1,56 @@
+unit Transp;
+
+interface
+
+type
+
+Transporte = class
+Public
+   Constructor Create(nome : string); overload;   // constructor
+   
+  function move(metros:Integer); //metodo
+
+	begin
+    
+	ShowMessage( nome +' moveu '+ inttostr(metros)+'m' );
+    
+	end;
+  
+  
+End;
+
+Carro = class (Transporte)
+Public
+  constructor Create;
+  function move: integer; override;
+end;
+
+Aviao = class (Transporte)
+Public
+  constructor Create;
+  function move: string; override;
+end;
+
+implementation
+
+constructor Carro.Create;
+begin
+  nome := 'Porshe 911';
+end;
+
+function Carro.move: string;
+begin
+  move := '100';
+end;
+
+constructor Aviao.Create;
+begin
+  nome := 'Boing 747';
+end;
+
+function Aviao.move: string;
+begin
+  move := '2500';
+end;
+
+end;
